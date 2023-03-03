@@ -11,12 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Watchlist.belongsTo(models.User, { foreignKey: 'userId'})
+      Watchlist.hasMany(models.Stock, { foreignKey: 'watchlistId' })
       // define association here
     }
   }
   Watchlist.init({
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    userId: { 
+      type:DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'users',
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Watchlist',

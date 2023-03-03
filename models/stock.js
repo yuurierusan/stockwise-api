@@ -11,13 +11,21 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      Stock.belongsTo(models.User, { foreignKey: 'userId'})
+      Stock.belongsTo(models.Watchlist, { foreignKey: 'watchlistId'})
       // define association here
     }
   }
   Stock.init({
     name: DataTypes.STRING,
-    userId: DataTypes.INTEGER
+    watchlistId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      onDelete: 'CASCADE',
+      references: {
+        model: 'watchlists',
+        key: 'id'
+      }
+    }
   }, {
     sequelize,
     modelName: 'Stock',
