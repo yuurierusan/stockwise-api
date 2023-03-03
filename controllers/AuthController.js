@@ -37,6 +37,7 @@ const Login = async (req, res) => {
             //Non-Sensitive info get put into payload
             let payload = {
                 id: user.id,
+                name: user.name,
                 email: user.email,
             }
             //Token is created and sent as a response with the payload
@@ -60,6 +61,7 @@ const UpdatePassword = async (req, res) => {
     try {
         const { oldPassword, newPassword } = req.body
         const user = await User.findByPk(req.params.user_id)
+        console.log(user.oldPassword)
         let matched = await middleware.comparePassword(
             user.passwordDigest,
             oldPassword
