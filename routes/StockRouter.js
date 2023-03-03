@@ -2,8 +2,8 @@ const Router = require('express').Router()
 const controller = require('../controllers/StockController')
 
 
-Router.get('/:watchlistId', controller.GetWatchlist)
-Router.post('/:watchlistId', controller.CreateWatchlist)
-Router.delete('/:id', controller.DeleteWatchlist)
+Router.get('/:watchlistId', controller.GetAllStock)
+Router.post('/:watchlistId', controller.AddStock)
+Router.delete('/:id', controller.DeleteStock)
 
 module.exports = Router

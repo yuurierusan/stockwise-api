@@ -3,7 +3,7 @@ const { Stock } = require('../models')
 
 const GetAllStock = async (req, res) => {
     try {
-      const stockList = await Stock.findAll(req.params.watchlistId)
+      const stockList = await Stock.findAll({ where: {watchlistId: req.params.watchlistId}})
       res.send(stockList)
     } catch (error) {
       throw error
