@@ -56,7 +56,41 @@ const Login = async (req, res) => {
     }
 }
 
+const UpdatePassword = async (req, res) => {
+    try {
+        const { oldPassword, newPassword } = req.body
+        const user = await User.findByPk(req.params.user_id)
+        let matched = await middleware.comparePassword(
+            user.passwordDigest,
+            oldPassword
+        )
+        if (matched) {
+            let passwordDigest = await middleware.hashPassword(newPassword)
+            await user.update({ passwordDigest })
+            let payload = {
+                id: user.id,
+                email: user.email,
+            }
+            return res.send({
+                status: `WE'VE UPDATED YOUR PASSWORD!`,
+                user: payload,
+            })
+        }
+        res.status(401).send({
+            status: 'Error',
+            msg: 'INCORRECT PASSWORD, TRY AGAIN!',
+        })
+    } catch (e) {
+        console.error(e)
+        res.status(401).send({
+            status: 'Error',
+            msg: 'ERROR UPDATING PASSWORD, PLEASE TRY AGAIN!',
+        })
+    }
+}
+
 module.exports = {
     Register,
     Login,
+    UpdatePassword,
 }
