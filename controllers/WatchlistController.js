@@ -2,7 +2,7 @@ const { Stock, User, Watchlist } = require('../models')
 
 const GetWatchlist = async (req, res) => {
     try {
-      const watchlist = await Watchlist.findByPk(req.params.userId)
+      const watchlist = await Watchlist.findOne({ where: {userId:req.params.userId}})
       res.send(watchlist)
     } catch (error) {
       throw error
