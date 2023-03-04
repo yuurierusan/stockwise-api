@@ -16,7 +16,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Stock.init({
-    name: DataTypes.STRING,
+    name: { 
+      type: DataTypes.STRING,
+      unique: true 
+    },
     watchlistId: {
       type: DataTypes.INTEGER,
       allowNull: false,
