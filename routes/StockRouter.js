@@ -3,10 +3,16 @@ const controller = require('../controllers/StockController')
 const middleware = require('../middleware')
 
 Router.get(
+  "/trending",
+    middleware.stripToken,
+    middleware.verifyToken,
+  controller.GetTrending
+)
+Router.get(
     '/:watchlistId',
     middleware.stripToken,
     middleware.verifyToken,
-    controller.GetAllStock
+    controller.GetAllStocksFromWatchlist
 )
 Router.post(
     '/:watchlistId/:name',
