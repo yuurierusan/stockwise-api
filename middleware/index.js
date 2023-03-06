@@ -39,10 +39,13 @@ const verifyToken = (req, res, next) => {
             //Passes token to next function if legit
             return next()
         }
-        res.status(401).send({ status: 'Error', msg: 'UNAUTHORIZED!' })
+        res.status(401).send({ status: 'ERROR', msg: 'UNAUTHORIZED!' })
     } catch (e) {
         console.error(e)
-        res.status(401).send({ status: 'Error', msg: 'ERROR VERIFYING TOKEN!' })
+        res.status(401).send({
+            status: 'ERROR',
+            msg: 'UNABLE TO VERIFY TOKEN!',
+        })
     }
 }
 
@@ -56,10 +59,10 @@ const stripToken = (req, res, next) => {
             //If the token exists we add it to lifecycle state
             return next()
         }
-        res.status(401).send({ status: 'Error', msg: 'UNAUTHORIZED!' })
+        res.status(401).send({ status: 'ERROR', msg: 'UNAUTHORIZED!' })
     } catch (e) {
         console.error(e)
-        res.status(401).send({ status: 'Error', msg: 'STRIP TOKEN ERROR!' })
+        res.status(401).send({ status: 'ERROR', msg: 'STRIP TOKEN ERROR!' })
     }
 }
 

@@ -14,7 +14,7 @@ const Register = async (req, res) => {
     } catch (e) {
         console.error(e)
         res.status(401).send({
-            status: 'Error',
+            status: 'ERROR',
             msg: 'ERROR CREATING USER, PLEASE TRY AGAIN!',
         })
     }
@@ -47,11 +47,11 @@ const Login = async (req, res) => {
                 token,
             })
         }
-        res.status(401).send({ status: 'Error', msg: 'UNAUTHORIZED!' })
+        res.status(401).send({ status: 'ERROR', msg: 'UNAUTHORIZED!' })
     } catch (e) {
         console.error(e)
         res.status(401).send({
-            status: 'Error',
+            status: 'ERROR',
             msg: 'ERROR CREATING USER, PLEASE TRY AGAIN!',
         })
     }
@@ -79,13 +79,13 @@ const UpdatePassword = async (req, res) => {
             })
         }
         res.status(401).send({
-            status: 'Error',
-            msg: 'INCORRECT PASSWORD, TRY AGAIN!',
+            status: 'ERROR',
+            msg: 'INVALID PASSWORD, TRY AGAIN!',
         })
     } catch (e) {
         console.error(e)
         res.status(401).send({
-            status: 'Error',
+            status: 'ERROR',
             msg: 'ERROR UPDATING PASSWORD, PLEASE TRY AGAIN!',
         })
     }
@@ -94,11 +94,11 @@ const UpdatePassword = async (req, res) => {
 const CheckSession = async (req, res) => {
     const { payload } = res.locals
     res.send(payload)
-  }
+}
 
 module.exports = {
     Register,
     Login,
     UpdatePassword,
-    CheckSession
+    CheckSession,
 }
