@@ -1,16 +1,16 @@
 {
     "development": {
-        "database": "stockwise",
+        "database": "stockwise_development",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "test": {
-        "database": "database_test",
+        "database": "stockwise_test",
         "host": "127.0.0.1",
         "dialect": "postgres"
     },
     "production": {
-        "database": "database_production",
+        "database": "stockwise_production",
         "host": "127.0.0.1",
         "dialect": "postgres"
     }
