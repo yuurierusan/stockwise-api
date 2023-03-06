@@ -11,7 +11,13 @@ module.exports = {
       },
       name: {
         type: Sequelize.STRING,
-        unique: true
+        unique: true,
+        allowNull: false
+      },
+      ticker: { 
+        type: DataTypes.STRING,
+        unique: true,
+        allowNull: false
       },
       watchlistId: {
         type: Sequelize.INTEGER,
