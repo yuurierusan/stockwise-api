@@ -9,7 +9,7 @@ Router.get(
     controller.GetAllStock
 )
 Router.post(
-    '/:watchlistId',
+    '/:watchlistId/:name',
     middleware.stripToken,
     middleware.verifyToken,
     controller.AddStock

@@ -12,16 +12,26 @@ const GetAllStock = async (req, res) => {
 }
 
 const AddStock = async (req, res) => {
-    try {
-        let watchlistId = parseInt(req.params.watchlistId)
-        let stockBody = {
-            watchlistId,
-            ...req.body,
+    const stockName = await Stock.findAll({
+        where: { name: req.params.name },
+    })
+    const found = stockName.find(
+        (stock) => stock?.dataValues?.watchlistId === +req.params.watchlistId
+    )
+    if (!found) {
+        try {
+            let watchlistId = parseInt(req.params.watchlistId)
+            let stockBody = {
+                watchlistId,
+                ...req.body,
+            }
+            let stock = await Stock.create(stockBody)
+            res.send(stock)
+        } catch (error) {
+            throw error
         }
-        let stock = await Stock.create(stockBody)
-        res.send(stock)
-    } catch (error) {
-        throw error
+    } else {
+        res.send({ msg: `Unable to add stock, it already exists.` })
     }
 }
 
