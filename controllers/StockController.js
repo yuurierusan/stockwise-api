@@ -27,7 +27,7 @@ const GetTrending = async (req, res) => {
     const values = Object.values(stockTrack)
     
     const trending = {}
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 5; i++) {
         let max = Math.max(...values)
         let index = values.indexOf(max)
         let key = keys[index]
