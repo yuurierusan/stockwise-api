@@ -15,7 +15,7 @@ module.exports = {
         allowNull: false
       },
       ticker: { 
-        type: DataTypes.STRING,
+        type: Sequelize.STRING,
         unique: true,
         allowNull: false
       },
