@@ -65,7 +65,6 @@ const UpdatePassword = async (req, res) => {
             user.passwordDigest,
             oldPassword
         )
-        console.log(oldPassword, newPassword, matched)
         if (matched) {
             let passwordDigest = await middleware.hashPassword(newPassword)
             await user.update({ passwordDigest })
