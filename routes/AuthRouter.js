@@ -8,7 +8,7 @@ router.put(
     '/update/:user_id',
     middleware.stripToken,
     middleware.verifyToken,
-    controller.UpdatePassword,
+    controller.UpdatePassword
 )
 
 router.get(
@@ -16,6 +16,6 @@ router.get(
     middleware.stripToken,
     middleware.verifyToken,
     controller.CheckSession
-  )
+)
 
 module.exports = router
