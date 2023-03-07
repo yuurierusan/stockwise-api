@@ -1,4 +1,4 @@
-![Github Banner](/stockwise-cover.png)
+![Github Banner](/public/stockwise-cover.png)
 
 ---
 
@@ -66,8 +66,11 @@
 
 ### **_Screenshots_**
 
-![Image]()
-![Image]()
+![Image](/public/ss1.png)
+![Image](/public/ss2.png)
+![Image](/public/ss3.png)
+![Image](/public/ss4.png)
+![Image](/public/ss5.png)
 
 ---
 
