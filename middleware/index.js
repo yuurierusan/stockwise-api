@@ -51,7 +51,6 @@ const verifyToken = (req, res, next) => {
 
 const stripToken = (req, res, next) => {
     try {
-        console.log(req.headers['authorization'])
         const token = req.headers['authorization'].split(' ')[1]
         //Takes token from req.headers
         //Splits the value of the auth header
