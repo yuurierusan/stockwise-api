@@ -1,5 +1,4 @@
-### STOCKWISE SERVER
-
+![Github Banner](/github-header-image.png)
 ![GitHub last commit](https://img.shields.io/github/last-commit/yuurierusan/stockwise-server)
 ![GitHub repo file count](https://img.shields.io/github/directory-file-count/yuurierusan/stockwise-server)
 
@@ -7,7 +6,7 @@
 
 ### By: Manuel Alonso, Josh Curtis, Jonshea Nutson
 
-#### [GitHub](https://github.com/yuurierusan) | [GitHub](https://github.com/mannyaalonso) | [GitHub](https://github.com/jcurti2) |[LinkedIn](https://linkedin.com/jonshean) | [LinkedIn](https://www.linkedin.com/in/josh-curtis08/) | [LinkedIn](https://www.linkedin.com/in/mannyaalonso/)
+#### [Jonshea's](https://github.com/yuurierusan) | [Manuel's](https://github.com/mannyaalonso) | [Josh's](https://github.com/jcurti2) |[Jonshea's](https://linkedin.com/jonshean) | [Josh's](https://www.linkedin.com/in/josh-curtis08/) | [Manuel's](https://www.linkedin.com/in/mannyaalonso/)
 
 ---
 
