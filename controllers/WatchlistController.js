@@ -25,32 +25,7 @@ const CreateWatchlist = async (req, res) => {
     }
 }
 
-const UpdateWatchlist = async (req, res) => {
-    try {
-        let watchlistId = parseInt(req.params.userId)
-        let UpdatedWatchlist = await Watchlist.update(req.body, {
-            where: { userId: watchlistId },
-            returning: true,
-        })
-        res.send(UpdatedWatchlist)
-    } catch (error) {
-        throw error
-    }
-}
-
-const DeleteWatchlist = async (req, res) => {
-    try {
-        let id = parseInt(req.params.userId)
-        await Watchlist.destroy({ where: { userId: id } })
-        res.send({ message: `Deleted watchlist with an id of ${id}` })
-    } catch (error) {
-        throw error
-    }
-}
-
 module.exports = {
     CreateWatchlist,
     GetWatchlist,
-    UpdateWatchlist,
-    DeleteWatchlist,
 }
