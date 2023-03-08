@@ -14,7 +14,12 @@ Router.get(
     middleware.verifyToken,
     controller.GetAllStocksFromWatchlist
 )
-
+Router.post(
+    '/:watchlistId/:name',
+    middleware.stripToken,
+    middleware.verifyToken,
+    controller.AddStock
+)
 Router.delete(
     '/:id',
     middleware.stripToken,
