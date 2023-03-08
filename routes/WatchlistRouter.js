@@ -14,17 +14,5 @@ Router.post(
     middleware.verifyToken,
     controller.CreateWatchlist
 )
-Router.put(
-    '/:userId',
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.UpdateWatchlist
-)
-Router.delete(
-    '/:userId',
-    middleware.stripToken,
-    middleware.verifyToken,
-    controller.DeleteWatchlist
-)
 
 module.exports = Router
