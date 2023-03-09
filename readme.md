@@ -84,7 +84,7 @@
 
 ---
 
-### **_Credits_**
+#### **_Credits_**
 
 -   Rapid API
 -   General Assembly TA's, IA's, Instructors
