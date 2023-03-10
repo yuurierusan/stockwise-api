@@ -60,8 +60,13 @@ const Login = async (req, res) => {
 const UpdatePassword = async (req, res) => {
     try {
         const { oldPassword, newPassword } = req.body
-        if (+req.params.user_id === 3) return
         const user = await User.findByPk(req.params.user_id)
+        if (user.dataValues.email === "guest@stockwise.com") {
+            return res.status(401).send({
+              status: "ERROR",
+              msg: "CAN'T UPDATE GUEST PASSWORD",
+            })
+        }
         let matched = await middleware.comparePassword(
             user.passwordDigest,
             oldPassword
