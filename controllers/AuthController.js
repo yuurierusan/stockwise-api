@@ -60,6 +60,7 @@ const Login = async (req, res) => {
 const UpdatePassword = async (req, res) => {
     try {
         const { oldPassword, newPassword } = req.body
+        if (+req.params.user_id === 3) return
         const user = await User.findByPk(req.params.user_id)
         let matched = await middleware.comparePassword(
             user.passwordDigest,
